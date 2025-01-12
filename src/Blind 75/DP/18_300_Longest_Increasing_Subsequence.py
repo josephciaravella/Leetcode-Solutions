@@ -1,20 +1,16 @@
 def lengthOfLIS(nums):
+    if not nums:
+        return 0
+
     tab = [1] * len(nums)
     longest = 1
-    beginning = nums[0]
-    prev_ind = 0
-    for i in range(1,len(nums)):
-        if (nums[i] > nums[prev_ind]):
-            tab[i] = tab[prev_ind] + 1
-            prev_ind = i
-        elif (nums[i] >= beginning):
-            tab[i] = longest
-        elif (nums[i] < beginning):
-            beginning = nums[i]
-            prev_ind = i
 
+    for i in range(1, len(nums)):
+        for j in range(i):
+            if nums[i] > nums[j]:
+                tab[i] = max(tab[i], tab[j] + 1)
         longest = max(longest, tab[i])
-    
+
     return longest
 
 print(lengthOfLIS([10,9,2,5,3,7,101,18]))
