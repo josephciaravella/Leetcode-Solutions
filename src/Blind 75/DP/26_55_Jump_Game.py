@@ -29,4 +29,4 @@ def canJumpTopDown(nums):
     for i in range(target-1, -1, -1):
         if i + nums[i] >= target:
             target = i
-        return target <= 0
+    return target <= 0
