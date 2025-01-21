@@ -29,3 +29,18 @@ def findMin(nums):
             final_min = mid
         
     return final_min
+
+
+def findMin2(nums):
+    l, r = 0, len(nums)-1 
+
+    while l < r:
+        mid = (l+r)//2
+        if r-l == 1:
+            return min(nums[l], nums[r])
+        if nums[mid] < nums[r]:
+            r = mid
+        elif nums[l] < nums[mid]:
+            l = mid
+            
+print(findMin2([4,5,6,7]))   
