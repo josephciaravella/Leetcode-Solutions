@@ -12,7 +12,7 @@ def countBits(n):
                 arr.append(1)
             else:
                 if i%2 == 0:
-                    arr.append(arr[i/2])
+                    arr.append(arr[i//2])
                 else:
                     arr.append(arr[i//2]+1)
         return arr
